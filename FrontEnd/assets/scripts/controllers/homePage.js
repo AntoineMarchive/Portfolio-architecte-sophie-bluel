@@ -69,12 +69,16 @@ let galleryContainer = document.querySelector(".gallery");
 for (let i = 0; i < tables.length; i++) {
     const figure = document.createElement("figure");
     galleryContainer.append(figure); 
-    
+
     const image = document.createElement("img");
     figure.append(image);
     console.log("ça marche");
     image.src = tables[i].image;
     console.log("image OK");
+
+    //const alt = document.createElement("alt")
+    //figure.append(alt);
+    //alt.innerHTML = tables[i].alt;
 
     const tagLine = document.createElement("figcaption");
     figure.append(tagLine);
