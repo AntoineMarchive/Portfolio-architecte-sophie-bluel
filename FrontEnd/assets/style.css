@@ -22,6 +22,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -137,31 +138,31 @@ li:hover {
 	width: 100%;
 
 }
-#contact ,#login {
+#contact {
 	width: 50%;
 margin: auto;
 }
-#contact ,#login, #forgetPwd > * {
+#contact > * {
 	text-align: center;
 
 }
-#contact, #login h2{
+#contact h2{
 	margin-bottom: 20px;
 }
-#contact, #login form {
+#contact form {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
 	flex-direction: column;
 }
 
-#contact, #login input {
+#contact input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact, #login label {
+#contact label {
 	margin: 2em 0 1em 0;
 }
 #contact textarea {
@@ -186,3 +187,32 @@ footer nav ul {
 	margin: 2em
 }
 
+/****** login page *******/
+
+#login {
+	width: 50%;
+margin: auto;
+}
+#login ,#forgotPwd> * {
+	text-align: center;
+
+}
+#login h2{
+	margin-bottom: 20px;
+}
+#login form {
+	text-align: left;
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+#login input {
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+#login label {
+	margin: 2em 0 1em 0;
+}
