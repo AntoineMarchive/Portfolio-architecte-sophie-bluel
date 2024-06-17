@@ -1,6 +1,7 @@
-//récuperation des variables du tableau//
 // cmd + shift + L = recuperation de l'ensemble//
-const tables = [
+
+//tableau comprenant tt les infos img / alt / figcaption de la partie Mes Projets
+const tables = [ 
     {
         imgage: "assets/images/abajour-tahina.png",
         alt: "Abajour Tahina",
@@ -58,30 +59,31 @@ const tables = [
     },
 ];
 
-/* Tables */
 
 /* récupération des données */
 
+// Mes Projets
 /* création de la div Gallery dans le dom */
 let galleryContainer = document.querySelector(".gallery");
 
-
-for (let i = 0; i < tables.length; i++) {
+// boucle for pour afficher les images
+for (let i = 0; i <= tables.length - 1; i++) {
+    console.log(i);
     const figure = document.createElement("figure");
     galleryContainer.append(figure); 
 
-    const image = document.createElement("img");
-    figure.append(image);
-    console.log("ça marche");
+    const image = document.createElement("img");  //création de l'élément img
+    figure.appendChild(image);
+    console.log("image marche");
     image.src = tables[i].image;
     console.log("image OK");
 
-    //const alt = document.createElement("alt")
-    //figure.append(alt);
+    //const alt = document.createElement("alt");  //création de l'élément alt
+    //figure.appendChild(alt);
     //alt.innerHTML = tables[i].alt;
 
-    const tagLine = document.createElement("figcaption");
-    figure.append(tagLine);
+    const tagLine = document.createElement("figcaption");  // création de l'élément figcaption
+    figure.appendChild(tagLine);
     console.log("txt marche");
     tagLine.innerText = tables[i].tagLine;
     console.log("txt ok");
