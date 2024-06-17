@@ -10,6 +10,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script src="./assets/scripts/controllers/loginPage.js" defer></script>
+	
 </head>
 <body>
 <header>
@@ -31,7 +32,8 @@
 			<label for="email">Email</label>
 			<input type="email" name="email" id="email">
 			<label for="password">Mot de passe</label>
-			<input type="password" name="password" id="password">
+			<input type="text" name="password" id="password">
+			<p id="errortext" class="hidden">l'e-mail et/ou le mot de passe ne sont pas corrects</p>
 			<input type="submit" value="Se connecter">
 		</form>
         <a href="#" class="forgotPwd">Mot de passe oublié</a>
