@@ -1,19 +1,21 @@
 //récupération des données
 // création de mes variables
 
-const email = document.getElementById("email");
-const password = document.getElementById("password");
 const form = document.querySelector("form");
 
 
-// ajout d'une ecouteur d'évènements au niveau de l'email et du password
-form.addEventListener("submit", () => {
-   const valueEmail = email.value;
-   const valuePassword = password.value;
-   if () => {
+// ajout d'une ecouteur d'évènements du bouton envoyer
+form.addEventListener("submit", (event) => {
+    //on empeche le comportement par defaut
+    event.preventDefault();
+    console.log("il n'y a pas de rehargement de page");
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    console.log(email);
+    console.log(password);
+   if () {  // si mon email ou mot de passe est bon, alors je me connecte
 
-   } else {
+   } else {  // sinon j'envois un message d'erreur
 
    }
-   
 });

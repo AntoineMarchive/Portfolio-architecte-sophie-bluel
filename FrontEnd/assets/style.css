@@ -131,6 +131,20 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+
+.btnAll {
+	padding: 9px 30px 9px 28px;
+}
+.btnObject {
+	padding: 9px 22px 9px 20px;
+}
+.btnAppartement {
+	padding: 9px 15px 9px 14px;
+}
+.btnHotel {
+	padding: 9px 11px 9px 9px;
+}
+
 .gallery {
 	width: 100%;
 	display: grid;
