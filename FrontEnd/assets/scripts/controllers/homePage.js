@@ -1,41 +1,63 @@
-import {getWorks} from "../servises/api.js"
+import { getWorks, getCategories} from "../services/api.js";
 
 const galleryContainer = document.querySelector(".gallery");
-// cmd + shift + L = recuperation de l'ensemble//
-const works = await getWorks()
-//tableau comprenant tt les infos img / alt / figcaption de la partie Mes Projets
-displayWorks(works)
-// autre methode : innerHTML
-//document.querySelector(".gallery").innerHTML ='';
+const categoriesContainer = document.querySelector(".filtres"); //fait pour l'essais de boucle categories
 
-//  async function
-// fetch("http://localhost:....")
+// cmd + shift + L = recuperation de l'ensemble//
+const works = await getWorks();
+const categories = await getCategories();
+
+displayWorks(works);
+displayCategories(categories);
+
 
 /* récupération des données */
 // Mes Projets
 /* création de la div Gallery dans le dom */
 
-
 function displayWorks(worksToDisplay) {
   galleryContainer.innerHTML = "";
   // boucle for pour afficher les images
   for (let i = 0; i < worksToDisplay.length; i++) {
-    console.log(i);
+    //console.log(i);
     const figure = document.createElement("figure");
     galleryContainer.append(figure);
 
     const image = document.createElement("img"); //création de l'élément img
     figure.appendChild(image);
-    console.log("image marche");
+    //console.log("image marche");
     image.src = worksToDisplay[i].imageUrl;
     image.alt = worksToDisplay[i].title;
-    console.log("image OK");
+    //console.log("image OK");
 
     const title = document.createElement("figcaption"); // création de l'élément figcaption
     figure.appendChild(title);
-    console.log("txt marche");
+    //console.log("txt marche");
     title.innerText = worksToDisplay[i].title;
-    console.log("txt ok");
+    //console.log("txt ok");
+  }
+}
+
+
+
+// essais de boucle pour Categories
+function displayCategories(categoriesToDisplay) {
+  categoriesContainer.innerHTML = "";
+  //boucle pour afficher les filtres
+  for (let i = 0; i < categoriesToDisplay; i++) {
+    console.log(i);
+    const button = document.createElement("button");
+    categoriesContainer.appendChild(button);
+
+    const btnObject = document.createElement("btnObject");
+    button.appendChild("btnObject");
+    console.log(btnobject);
+    const btnAppartement = document.createElement("btnAppartement");
+    button.appendChild("btnAppartement");
+    console.log(btnAppartement);
+    const btnHotel = document.createElement("btnHotel");
+    button.appendChild("btnHotel");
+    console.log(btnHotel);
   }
 }
 
