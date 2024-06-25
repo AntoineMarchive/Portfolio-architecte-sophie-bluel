@@ -4,14 +4,46 @@ const galleryContainer = document.querySelector(".gallery");
 const categoriesContainer = document.querySelector(".filtres"); //fait pour l'essais de boucle categories
 
 // cmd + shift + L = recuperation de l'ensemble//
+
 const works = await getWorks();
 const categories = await getCategories();
 
 displayWorks(works);
 displayCategories(categories);
 
-
 /* récupération des données */
+
+// essais de boucle pour Categories
+function displayCategories(categoriesToDisplay) {
+  //verifier si le conteneur est déjà rempli
+  if (categoriesContainer.children.length > 0) {
+    return; // Si c'est le cas, ne faites rien
+}
+    for (let i = 0; i < categoriesToDisplay.length; i++) {
+      console.log(i);
+      const button = document.createElement("div"); 
+      categoriesContainer.appendChild(button);
+      button.classList.add("button"); 
+  
+      const btnObjet = document.createElement("button");
+      btnObjet.innerText = "Objets"; // Création du texte 'Objets'
+      button.appendChild(btnObjet);
+      console.log("bouton objet ok");
+  
+      const btnAppartements = document.createElement("button");
+      btnAppartements.innerText = "Appartements"; // Création du texte 'Appartements'
+      button.appendChild(btnAppartements);
+      console.log("bouton appartement ok");
+  
+      const btnHotel = document.createElement("button");
+      btnHotel.innerText = "Hotel"; // Création du texte 'Hotel'
+      button.appendChild(btnHotel);
+      console.log("bouton hotel ok");
+  };
+};
+
+
+
 // Mes Projets
 /* création de la div Gallery dans le dom */
 
@@ -20,6 +52,7 @@ function displayWorks(worksToDisplay) {
   // boucle for pour afficher les images
   for (let i = 0; i < worksToDisplay.length; i++) {
     //console.log(i);
+    //Création d'une balise dédiée à un projet Gallery
     const figure = document.createElement("figure");
     galleryContainer.append(figure);
 
@@ -35,44 +68,5 @@ function displayWorks(worksToDisplay) {
     //console.log("txt marche");
     title.innerText = worksToDisplay[i].title;
     //console.log("txt ok");
-  }
-}
-
-
-
-// essais de boucle pour Categories
-function displayCategories(categoriesToDisplay) {
-  categoriesContainer.innerHTML = "";
-  //boucle pour afficher les filtres
-  for (let i = 0; i < categoriesToDisplay; i++) {
-    console.log(i);
-    const button = document.createElement("button");
-    categoriesContainer.appendChild(button);
-
-    const btnObject = document.createElement("btnObject");
-    button.appendChild("btnObject");
-    console.log(btnobject);
-    const btnAppartement = document.createElement("btnAppartement");
-    button.appendChild("btnAppartement");
-    console.log(btnAppartement);
-    const btnHotel = document.createElement("btnHotel");
-    button.appendChild("btnHotel");
-    console.log(btnHotel);
-  }
-}
-
-/* struture différente de la boucle, mais meme effets. essais de recuerer les données sans passer par un tableau
-    for (let i = 0; i < tables.length; i++) {
-        const figureElement = document.createElement("figure");
-        const imageElement = document.createElement("img");
-        const altElement = document.createElement("alt");
-        const tagLineElement = document.createElement("figcaption");
-        imageElement.src = tables[i].imageUrl; 
-        altElement.innerHTML = tables[i].alt;
-        tagLineElement.innerText = tables[i].tagLine;
-        galleryContainer.appendChild(figureElement);
-        figureElement.appendChild(imageElement);
-        imageElement.appendChild(altElement);
-        figureElement.appendChild(tagLineElement);
-    }
-*/
+  };
+};
