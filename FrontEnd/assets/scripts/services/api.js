@@ -9,5 +9,5 @@ export async function getCategories() {
     const responseCategories = await fetch("http://localhost:5678/api/categories");
     const categories = await responseCategories.json();
     //console.log(categories);
-    return categories;
+    return categories; // renvois les catégories
 };
