@@ -11,8 +11,8 @@ const categories = await getCategories();
 displayWorks(works);
 displayCategories(categories);
 
-/* récupération des données */
-
+// Mes Projets
+// création des btn biltres dans le dom
 // essais de boucle pour Categories
 function displayCategories(categoriesToDisplay) {
   //verifier si le conteneur est déjà rempli
@@ -26,25 +26,22 @@ function displayCategories(categoriesToDisplay) {
       button.classList.add("button"); 
   
       const btnObjet = document.createElement("button");
-      btnObjet.innerText = "Objets"; // Création du texte 'Objets'
       button.appendChild(btnObjet);
+      btnObjet.innerText = categoriesToDisplay[i].name; // Création du texte 'Objets'
       console.log("bouton objet ok");
   
       const btnAppartements = document.createElement("button");
-      btnAppartements.innerText = "Appartements"; // Création du texte 'Appartements'
       button.appendChild(btnAppartements);
+      btnAppartements.innerText = categoriesToDisplay[i].name; // Création du texte 'Appartements'
       console.log("bouton appartement ok");
   
       const btnHotel = document.createElement("button");
-      btnHotel.innerText = "Hotel"; // Création du texte 'Hotel'
       button.appendChild(btnHotel);
+      btnHotel.innerText = categoriesToDisplay[i].name; // Création du texte 'Hotels & Restaurants'
       console.log("bouton hotel ok");
   };
 };
 
-
-
-// Mes Projets
 /* création de la div Gallery dans le dom */
 
 function displayWorks(worksToDisplay) {
