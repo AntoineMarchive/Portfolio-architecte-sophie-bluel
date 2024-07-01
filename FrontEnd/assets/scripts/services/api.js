@@ -3,7 +3,7 @@ export async function getWorks() {
    const works = await responseWorks.json(); // si reponse ok, on aura les données
    //console.log(works);
    return works; // renvois les works
-};
+}
 
 export async function getCategories() {
     const responseCategories = await fetch("http://localhost:5678/api/categories");

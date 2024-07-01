@@ -5,17 +5,21 @@ const categoriesContainer = document.querySelector(".filtres"); //fait pour l'es
 
 // cmd + shift + L = recuperation de l'ensemble//
 
-const allWorks = await getWorks(); // recuperer tt mes works
+
+const allWorks = await getWorks(); // declare ma variable = attendre de recuperer tt mes works
 const categories = await getCategories();
 
+//fonction (parametres);
 displayWorks(allWorks); // appel ma fonction displayworks pour afficher TT les works"allworks en parametres"
 displayCategories(categories);
 
 // Mes Projets
 // création des btn biltres dans le dom
 // essais de boucle pour Categories
+
+//function  action de la fct (parametres)
 function displayCategories(categoriesToDisplay) {
-  categoriesToDisplay.unshift({
+  categoriesToDisplay.unshift({ // ajoute a la 1ere place du tableau
     id: 0,
     name: "Tous",
   });
@@ -31,7 +35,8 @@ function displayCategories(categoriesToDisplay) {
       if (categoriesToDisplay[i].id == 0) {
         displayWorks(allWorks);
       } else {
-        displayWorks([])
+        const filteredWorks = allWorks.filter(work => work.categoryId === categoriesToDisplay[i].id);
+        displayWorks(filteredWorks); // afficher les works filtrés
       }
     });
 
@@ -41,10 +46,9 @@ function displayCategories(categoriesToDisplay) {
 
 /* création de la div Gallery dans le dom */
 function displayWorks(worksToDisplay) {
-  galleryContainer.innerHTML = "";
+  galleryContainer.innerHTML = ""; // remet a 0 pour recharger sinon accumulation (boucle)
   // boucle for pour afficher les images
-  for (let i = 0; i < worksToDisplay.length; i++) {
-    //console.log(i);
+  for (let i = 0; i < worksToDisplay.length; i++) { // worksToDisplay = nom de l'api en interne
     //Création d'une balise dédiée à un projet Gallery
     const figure = document.createElement("figure");
     galleryContainer.append(figure);
