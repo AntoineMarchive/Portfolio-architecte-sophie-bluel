@@ -28,19 +28,31 @@ function displayCategories(categoriesToDisplay) {
     return; // Si c'est le cas, ne faites rien
   }
   for (let i = 0; i < categoriesToDisplay.length; i++) {
-    const button = document.createElement("button");
-    button.classList.add("button");
-    button.innerText = categoriesToDisplay[i].name;
-    button.addEventListener("click", () => {
+    const btn = document.createElement("button");
+    btn.classList.add("button");
+    btn.innerText = categoriesToDisplay[i].name;
+
+    if (i === 0) { // Ajouter la classe 'active' au premier bouton
+      btn.classList.add("active");
+    }
+
+    btn.addEventListener("click", () => {
       if (categoriesToDisplay[i].id == 0) {
         displayWorks(allWorks);
       } else {
         const filteredWorks = allWorks.filter(work => work.categoryId === categoriesToDisplay[i].id);
         displayWorks(filteredWorks); // afficher les works filtrés
       }
+      
+       // Gérer la classe 'active'
+       const activeButton = document.querySelector(".button.active");
+       if (activeButton) {
+         activeButton.classList.remove("active");
+       }
+       btn.classList.add("active");
     });
 
-    categoriesContainer.appendChild(button);
+    categoriesContainer.appendChild(btn);
   }
 }
 
