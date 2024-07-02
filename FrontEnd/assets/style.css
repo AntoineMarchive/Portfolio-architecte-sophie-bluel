@@ -139,7 +139,27 @@ li:hover {
 	margin-bottom: 50px;
 }
 
+.button {
+	color: #1D6154;
+	border: 1px solid #1D6154;
+	background-color: white;
+	border-radius: 60px;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	padding: 9px 22px 9px 20px;
+}
 
+.button.active {
+	color: white;
+	border: 1px solid #1D6154;
+	background-color: #1D6154;
+	border-radius: 60px;
+	font-size: 16px;
+	font-weight: 700;
+	text-align: center;
+	padding: 9px 22px 9px 20px;
+}
 
 .gallery {
 	width: 100%;
