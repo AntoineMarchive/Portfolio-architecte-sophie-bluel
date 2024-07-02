@@ -1,21 +1,25 @@
-//récupération des données
-// création de mes variables
+import { getConnection } from "../services/api.js";
 
-const form = document.querySelector("form");
+const email = document.getElementById("email")
+const password = document.getElementById("password")
+const form = document.querySelector("form")
+const errorText = document.getElementById("errortext")
+ 
+ 
 
-
-// ajout d'une ecouteur d'évènements du bouton envoyer
 form.addEventListener("submit", (event) => {
-    //on empeche le comportement par defaut
-    event.preventDefault();
-    console.log("il n'y a pas de rehargement de page");
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    console.log(email);
-    console.log(password);
-   if () {  // si mon email ou mot de passe est bon, alors je me connecte
-
-   } else {  // sinon j'envois un message d'erreur
-
-   }
+    event.preventDefault()
+    const valueEmail = email.value
+    const valuePassword = password.value
+    getConnection(valueEmail, valuePassword)
+    .then((response) => response.json())
+    .then(login => { 
+        if (login.token) {
+            localStorage.setItem("token", login.token)
+            window.location.href="./index.html"
+        } else {
+            errorText.classList.remove("hidden")
+        }
+    }) 
+    
 });
