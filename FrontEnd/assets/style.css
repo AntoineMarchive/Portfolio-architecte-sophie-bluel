@@ -251,3 +251,7 @@ margin: auto;
 #login label {
 	margin: 2em 0 1em 0;
 }
+
+.hidden {
+	display: none;
+}
