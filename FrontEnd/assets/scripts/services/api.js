@@ -15,13 +15,14 @@ export async function getCategories() {
 // export de la fonction pour email et password vers le serveur
 export async function getConnection(email, password) {
     return fetch("http://localhost:5678/api/users/login", {
-        method: 'POST',
-        headers: {
-            "Content-type": "application/json"
-        },
+        method: 'POST', // permet de creer une information
         body: JSON.stringify({
             "email": email,
             "password": password,
-        })
-    })
+        }),
+        headers: {
+            "Content-type": "application/json" // charge utile
+        }
+        
+    });
 };
