@@ -16,12 +16,12 @@ export async function getCategories() {
 export async function getConnection(email, password) {
     return fetch("http://localhost:5678/api/users/login", {
         method: 'POST', // permet de creer une information
-        body: JSON.stringify({
+        body: JSON.stringify({ //transformation en chaine de caractere
             "email": email,
             "password": password,
         }),
         headers: {
-            "Content-type": "application/json" // charge utile
+            "Content-type": "application/json" // charge utile, parametre essentiel
         }
         
     });

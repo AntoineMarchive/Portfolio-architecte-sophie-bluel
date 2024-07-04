@@ -21,7 +21,9 @@
 		<ul>
 			<li><a href="#portolio">projets</a></li>
 			<li><a href="#contact">contact</a></li>
-			<li><a href="./login.html">login</a></li>
+			<li class="login"><a href="./login.html">login</a></li> 
+			<!-- creer un id: connexion ou une class (hidden); et definir un statut avec un boolean qui determinera le texte-->
+			<li class="logout hidden"><a href="./login.html">logout</a></li>
 			<li><img src="./assets/icons/instagram.png" alt="Instagram"></li>
 		</ul>
 	</nav>
@@ -40,7 +42,7 @@
 	</section>
 	<section id="portfolio">
 		<h2>Mes Projets</h2>
-		<div id="modif" class="hidden">
+		<div id="modification" class="hidden">
 			<i class="fa-regular fa-pen-to-square"></i> 
 			<p>Modifier</p>
 		</div>
@@ -52,7 +54,7 @@
 		</div>
 
 <!--Ajout modal 1-->  
-<div id="modal1" class="modal">
+<!--<div id="modal1" class="modal" aria-hidden="true">
 	<div class="modal-wrapper">
 		<i class="fa-solid fa-xmark"></i>
 		<p id="modaltitle">Ajout photo</p>
@@ -60,7 +62,7 @@
 		<input class="button" type="submit" value="Ajouter une photo">
 	</div>
 </div>
-<!--Ajout modal 2-->
+Ajout modal 2-->   
 
 	</section>
 	<section id="contact">
