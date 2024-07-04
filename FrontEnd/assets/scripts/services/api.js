@@ -13,7 +13,7 @@ export async function getCategories() {
 };
 
 // export de la fonction pour email et password vers le serveur
-export async function getConnection(email, password) {
+export async function login(email, password) {
     return fetch("http://localhost:5678/api/users/login", {
         method: 'POST', // permet de creer une information
         body: JSON.stringify({ //transformation en chaine de caractere
