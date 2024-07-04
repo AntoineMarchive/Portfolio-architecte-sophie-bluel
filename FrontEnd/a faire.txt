@@ -1,0 +1,18 @@
+etape 1
+creer un id pour login/log out
+si connecté alors :
+- apparaitre edition
+- apparaitre modifier
+- disparaitres filtres
+- faire apparaitre logout
+sinon :
+disparaitre edition
+-disparaitre mofifier
+-apparaitre les filtres
+-apparaitre login
+
+etape 2
+pour modal1:
+-ajout d'un ecouteur d'evenement sur modifier.
+-click => si statut connecté alors: modal apparait.
+sinon : "message" veuillez vous connecter.
