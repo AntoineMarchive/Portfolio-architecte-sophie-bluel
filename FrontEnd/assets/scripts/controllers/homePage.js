@@ -7,6 +7,11 @@ const categoriesContainer = document.querySelector(".filtres"); //fait pour l'es
 const allWorks = await getWorks(); // declare ma variable = attendre de recuperer tt mes works
 const categories = await getCategories();
 
+const edition = document.getElementById("edition");
+const modification = document.getElementById("modification");
+const login = document.querySelector(".login");
+const logout = document.querySelector(".logout");
+
 //fonction (parametres);
 displayWorks(allWorks); // appel ma fonction displayworks pour afficher TT les works"allworks en parametres"
 displayCategories(categories);
@@ -57,7 +62,7 @@ function displayCategories(categoriesToDisplay) {
 
     categoriesContainer.appendChild(btn);
   }
-}
+};
 
 /* création de la div Gallery dans le dom */
 function displayWorks(worksToDisplay) {
