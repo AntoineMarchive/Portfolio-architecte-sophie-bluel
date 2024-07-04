@@ -130,11 +130,25 @@ li:hover {
 #portfolio h2 {
 	text-align: center;
 	margin-bottom: 1em;
+	position: relative;
+}
+
+#modification {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	position: absolute;
+    right: 400px;
+    bottom: 330px;
 }
 
 #modification.hidden {
 	display: none;
 }
+
+
+
 
 .filtres {
 	display: flex;
