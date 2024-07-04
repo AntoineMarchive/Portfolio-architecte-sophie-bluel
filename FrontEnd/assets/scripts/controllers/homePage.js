@@ -10,7 +10,20 @@ const categories = await getCategories();
 const edition = document.getElementById("edition");
 const modification = document.getElementById("modification");
 const login = document.querySelector(".login");
-const logout = document.querySelector(".logout");
+
+const token = localStorage.getItem("token") //prend dans le local storage la valeur qui a pour cle "token"
+if (token) {
+  edition.classList.remove("hidden");
+  modification.classList.remove("hidden");
+  categoriesContainer.classList.add("hidden");
+  login.href = "/"  // retour page d'acceuil
+  login.innerText = "logout";
+  login.addEventListener("click", (event) => {
+    event.preventDefault()
+    localStorage.removeItem("token")
+    window.location.reload()
+  })
+};
 
 //fonction (parametres);
 displayWorks(allWorks); // appel ma fonction displayworks pour afficher TT les works"allworks en parametres"
@@ -24,6 +37,7 @@ displayCategories(categories);
 // ajouter un token (jeton)
 // si mdp correct alors btn (Tous/ objets / appartements / hotel) disparaissent (hidden)
 // login disparait remplassé par logout
+
 
 //function  action de la fct (parametres)
 function displayCategories(categoriesToDisplay) {
