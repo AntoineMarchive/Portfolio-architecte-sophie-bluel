@@ -270,6 +270,12 @@ margin: auto;
 	margin: 2em 0 1em 0;
 }
 
+#errortext {
+	margin: 10px 0;
+	color: red;
+	text-align: center;
+}
+
 .hidden {
 	display: none;
 }
