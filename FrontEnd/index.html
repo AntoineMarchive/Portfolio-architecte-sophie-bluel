@@ -42,6 +42,22 @@
         </ul>
       </nav>
     </header>
+
+                          <!-- Debut Modal-->
+
+    <dialog id="modal-delete" class="modal-delete">
+      <div id="close_modal1" class="close_modal1"> x
+				<!--  <i class="fa-solid fa-xmark modal-exit"></i> -->
+      </div>
+      </div>
+				<h2>Galerie Photo</h2>
+        <hr>
+        <button id="add-photo">Ajouter une photo</button>
+      </div>
+    </dialog>
+
+
+
     <main>
       <section id="introduction">
         <figure>
@@ -67,17 +83,19 @@
         </article>
       </section>
       <section id="portfolio">
-        <h2>Mes Projets</h2>
-        <div id="modification" class="hidden">
-          <i class="fa-regular fa-pen-to-square"></i>
-          <p>Modifier</p>
+        <div class="Projects">
+          <h2>Mes Projets</h2>
+          <div id="modification" class="hidden">
+            <i class="fa-regular fa-pen-to-square"></i>
+            <p>Modifier</p>
+          </div>
         </div>
 
         <!-- interroger le serveur-->
         <div class="filtres"></div>
         <div class="gallery"></div>
 
-        <!--Ajout modal 1-->
+        <!--Ajout modal 1--> <!-- boite de dialogue-->
 
 
       </section>
@@ -103,5 +121,6 @@
         </ul>
       </nav>
     </footer>
+
   </body>
 </html>

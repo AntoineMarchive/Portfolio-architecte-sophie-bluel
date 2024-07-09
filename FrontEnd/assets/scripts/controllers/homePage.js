@@ -10,6 +10,11 @@ const categories = await getCategories();
 const edition = document.getElementById("edition");
 const modification = document.getElementById("modification");
 const login = document.querySelector(".login");
+const dialog = document.querySelector(".modal-delete");
+const closeModal1 = document.getElementById('close_modal1');
+
+
+
 
 const token = localStorage.getItem("token") //prend dans le local storage la valeur qui a pour cle "token"
 if (token) {
@@ -22,7 +27,7 @@ if (token) {
     event.preventDefault()
     localStorage.removeItem("token")
     window.location.reload()
-  })
+  });
 };
 
 //fonction (parametres);
@@ -101,6 +106,26 @@ function displayWorks(worksToDisplay) {
     //console.log("txt ok");
   }
 }
+
+
+modification.addEventListener("click", (event) => {
+event.preventDefault();
+  console.log("modal ok");
+  dialog.showModal();
+});
+
+closeModal1.addEventListener('clcik', () => {
+  alert('fermeture demandée');
+  console.log("fermeture modal");
+  dialog.style.display = "none";
+});
+
+
+
+
+
+
+
 
 
 //notes perso : 
