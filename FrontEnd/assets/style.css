@@ -383,17 +383,42 @@ footer nav ul {
 
 /******** Modal1 ********/
 .modal-delete {
+  width: 630px;
+  height: 630px;
   border: none;
   border-radius: 25px;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
-#close_modal1 {
-	font-size: 24px;
-	&:hover {
-		cursor: pointer;
-	}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
 }
 
+.modal-delete-content {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
 
+.modalGallery {
+  display: grid;
+	grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+}
+
+.modalGallery img {
+  object-fit: cover;
+  width: 90px;
+  height: 130px;
+}
 
 
