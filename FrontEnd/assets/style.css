@@ -370,9 +370,11 @@ footer nav ul {
   width: 100%;
   padding: 19.5px 0px 20.5px 0px;
 }
+
 #edition p {
   color: #ffffff;
 }
+
 #edition i {
   color: #ffffff;
 }
@@ -391,6 +393,14 @@ footer nav ul {
   margin-right: 25%;
 }
 
+.modal-delete-content {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
 .modal-content {
   display: flex;
   flex-direction: column;
@@ -400,25 +410,46 @@ footer nav ul {
   margin-top: 20px;
 }
 
-.modal-delete-content {
-  border: none;
-  background-color: transparent;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-}
-
 .modalGallery {
   display: grid;
 	grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 20px;
   grid-row-gap: 10px;
+  
 }
 
 .modalGallery img {
   object-fit: cover;
   width: 90px;
   height: 130px;
+
 }
 
+.add-photo {
+    font-family: "Syne";
+    font-weight: 700;
+    color: white;
+    background-color: #1d6154;
+    margin: 2em auto;
+    width: 180px;
+    text-align: center;
+    border-radius: 60px;
+}
 
+.modal-gallery-content {
+  display: flex;
+  
+  position: relative;
+}
+
+.modal-gallery-content i {
+  font-size: 10px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: white;
+  box-sizing: border-box;
+  background-color: black ;
+  padding: 2px;
+  
+}
