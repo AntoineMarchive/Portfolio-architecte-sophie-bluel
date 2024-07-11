@@ -53,7 +53,31 @@
         <h2>Galerie Photo</h2>
         <div class="modalGallery"></div>
         <hr />
-        <button id="add-photo" class="add-photo" >Ajouter une photo</button>
+        <button id="add-photo" class="add-photo">Ajouter une photo</button>
+      </div>
+
+      <div class="modal-content2 "> <!-- Faire le CSS de la modal 2-->
+        <button class="modal-delete-content2">
+          <i id="returnModal" class="fa-solid fa-arrow-left"></i>
+          <i id="closeModal" class="fa-solid fa-xmark modal-exit"></i>
+        </button>
+        <h2>Ajout photo</h2>
+        <form action="#" method="post">
+          <div class="ajoutPhoto">
+            <img class="iconePhoto" src="./assets/icons/picture-svgrepo-com1.png" alt="Télécharger image">
+            <label for="ajouterImage" class="ajouterImage flex"><div class="espaceCliquableAjoutImage"></div>+ Ajouter photo</label>
+            <input id="ajouterImage" type="file" accept="image/png, image/jpeg"> 
+            <p class="infoImage">jpg, png : 4mo max</p>
+            <div id="previewImageContainer" class="hidden"></div>
+        </div>
+        <div class="divForm">
+          <label for="titre">Titre</label>
+            <input class="inputForm titrePhoto" type="text" name="titre" id="titre" required>
+            <label for="categorie">Catégorie</label>
+            <select class="inputForm categorie" type="select" name="categorie" id="categorie" required>
+          </select>
+      </div>
+        </form>
       </div>
     </dialog>
 
