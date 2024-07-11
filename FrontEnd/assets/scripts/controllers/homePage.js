@@ -1,4 +1,4 @@
-import { getWorks, getCategories } from "../services/api.js";
+import { getWorks, getCategories, deleteWork } from "../services/api.js";
 
 const galleryContainer = document.querySelector(".gallery");
 const categoriesContainer = document.querySelector(".filtres");
@@ -72,8 +72,9 @@ function displayWorks(worksToDisplay) {
     galleryContainer.innerHTML = "";
     for (let i = 0; i < worksToDisplay.length; i++) {
         const figure = document.createElement("figure");
+        figure.id = "workGallery" +worksToDisplay[i].id;
         galleryContainer.append(figure);
-
+        
         const image = document.createElement("img");
         figure.appendChild(image);
         image.src = worksToDisplay[i].imageUrl;
@@ -83,7 +84,7 @@ function displayWorks(worksToDisplay) {
         figure.appendChild(title);
         title.innerText = worksToDisplay[i].title;
     }
-}
+};
 
 
 modification.addEventListener("click", (e) => {
@@ -95,15 +96,31 @@ closeModal.addEventListener("click", (e) => {
   dialog.close();
 });
 
+const modalGallery = document.querySelector(".modalGallery");
+
 function modalGalleryDisplay(worksToDisplay) {
-  const modalGallery = document.querySelector(".modalGallery");
-  galleryContainer.innerHTML = "";
+  modalGallery.innerHTML = "";
   for (let i = 0; i < worksToDisplay.length; i++) {
+    const modalGalleryContent = document.createElement("div");
+    modalGalleryContent.classList.add("modal-gallery-content")
+    modalGallery.appendChild(modalGalleryContent);
     const image = document.createElement("img");
-    modalGallery.appendChild(image);
+    modalGalleryContent.appendChild(image);
     image.src = worksToDisplay[i].imageUrl;
     image.alt = worksToDisplay[i].title;
-    //creer un btn
-    //appeler btn enfant d'image
+    const icon = document.createElement("i");
+    icon.classList.add("fa-solid", "fa-trash-can");
+    modalGalleryContent.appendChild(icon);
+    icon.addEventListener("click", async (event) => {
+      if (confirm("voulez-vous supprimer cette photo")) {
+        try {
+          modalGalleryContent.remove();
+          const workGallery = document.getElementById("workGallery" +worksToDisplay[i].id)
+          workGallery.remove();
+        } catch (error) {
+          alert("une erreur est survenue")
+        }
+      } 
+    })
   }
 };
