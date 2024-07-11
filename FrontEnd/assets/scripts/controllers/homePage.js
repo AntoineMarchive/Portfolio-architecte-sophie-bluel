@@ -1,4 +1,4 @@
-import { getWorks, getCategories, deleteWork } from "../services/api.js";
+import { getWorks, getCategories, deleteWork, addWork } from "../services/api.js";
 
 const galleryContainer = document.querySelector(".gallery");
 const categoriesContainer = document.querySelector(".filtres");
@@ -115,12 +115,15 @@ function modalGalleryDisplay(worksToDisplay) {
       if (confirm("voulez-vous supprimer cette photo")) {
         try {
           modalGalleryContent.remove();
-          const workGallery = document.getElementById("workGallery" +worksToDisplay[i].id)
+          const workGallery = document.getElementById("workGallery" +worksToDisplay[i].id);
           workGallery.remove();
+          await deleteWork(worksToDisplay[i].id);
         } catch (error) {
           alert("une erreur est survenue")
         }
       } 
-    })
+    });
   }
 };
+
+
