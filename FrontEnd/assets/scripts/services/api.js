@@ -26,3 +26,35 @@ export async function login(email, password) {
         
     });
 };
+
+export async function deleteWork(id) {
+    const res = await fetch(`http://localhost:5678/api/works/${id}`, {
+        method: 'DELETE',
+        headers: {
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to delete work');
+    }
+    return;
+} ;
+
+export async function addWork(workData) {
+    const res = await fetch("http://localhost:5678/api/works", {
+        method: 'POST',
+        body: JSON.stringify(workData),
+        headers: {
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`
+        }
+    });
+
+    if (!res.ok) {
+        throw new Error('Failed to add work');
+    }
+
+    const data = await res.json();
+    return data;
+};
