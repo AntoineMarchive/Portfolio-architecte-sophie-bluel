@@ -357,7 +357,7 @@ footer nav ul {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 /******** Mode Edition ********/
@@ -383,7 +383,7 @@ footer nav ul {
   display: none;
 }
 
-/******** Modal1 ********/
+/******** Modal ********/
 .modal-delete {
   width: 630px;
   height: 630px;
@@ -391,6 +391,16 @@ footer nav ul {
   border-radius: 25px;
   margin-left: 25%;
   margin-right: 25%;
+}
+/***** Modal 1 *******/
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
 }
 
 .modal-delete-content {
@@ -401,13 +411,8 @@ footer nav ul {
   right: 15px;
 }
 
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  margin-top: 20px;
+.modal-content hr {
+  width: 75%;
 }
 
 .modalGallery {
@@ -422,7 +427,6 @@ footer nav ul {
   object-fit: cover;
   width: 90px;
   height: 130px;
-
 }
 
 .add-photo {
@@ -438,7 +442,6 @@ footer nav ul {
 
 .modal-gallery-content {
   display: flex;
-  
   position: relative;
 }
 
@@ -451,5 +454,109 @@ footer nav ul {
   box-sizing: border-box;
   background-color: black ;
   padding: 2px;
-  
+}
+
+/****** Modal 2 ******/
+
+
+.modal-content2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.modal-delete-content2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+.ajoutPhoto{
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 420px;
+	height: 169px;
+	flex-shrink: 0;
+	border-radius: 3px;
+	background: #E8F1F6;
+	position: relative;
+}
+
+.ajoutPhoto i{
+  display: flex;
+  justify-content: center;
+  font-size: 76px;
+	flex-shrink: 0;
+	color: #b9c5cc;
+	margin-top: 23px;
+	margin-bottom: 6px;
+}
+
+.ajouterImage{
+  display: flex;
+	width: 173px;
+	height: 36px;
+	flex-shrink: 0;
+	border-radius: 50px;
+	background: #CBD6DC;
+	color: #306685;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	font-family: Work Sans;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	margin-top : 6px;
+}
+
+.espaceCliquableAjoutImage{
+	z-index: 3;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	visibility:visible;
+}
+
+.infoImage{
+	color: #444;
+	text-align: center;
+	font-family: Work Sans;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-top: 7px;
+	margin-bottom: 19px;
+}
+
+.divForm{
+	padding: 47px 0 47px 0;
+	display: flex;
+	flex-direction: column;
+  gap: 10px;
+}
+
+.divForm hr{
+  width: 100%;
+}
+
+.titrePhoto{
+  height: 30px;
+}
+
+.categorie{
+  height: 30px;
 }

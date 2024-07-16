@@ -51,20 +51,20 @@
           <i id="closeModal" class="fa-solid fa-xmark modal-exit"></i>
         </button>
         <h2>Galerie Photo</h2>
-        <div class="modalGallery"></div>
+        <div id="modalGallery" class="modalGallery"></div>
         <hr />
-        <button id="add-photo" class="add-photo">Ajouter une photo</button>
+        <button id="changeModal" class="add-photo">Ajouter une photo</button>
       </div>
 
-      <div class="modal-content2 "> <!-- Faire le CSS de la modal 2-->
+      <div class="modal-content2 hidden"> <!-- Faire le CSS de la modal 2-->
         <button class="modal-delete-content2">
           <i id="returnModal" class="fa-solid fa-arrow-left"></i>
-          <i id="closeModal" class="fa-solid fa-xmark modal-exit"></i>
+          <i id="closeModal2" class="fa-solid fa-xmark modal-exit"></i>
         </button>
         <h2>Ajout photo</h2>
         <form action="#" method="post">
           <div class="ajoutPhoto">
-            <img class="iconePhoto" src="./assets/icons/picture-svgrepo-com1.png" alt="Télécharger image">
+            <i class="fa-regular fa-image"  alt="Télécharger image"></i>
             <label for="ajouterImage" class="ajouterImage flex"><div class="espaceCliquableAjoutImage"></div>+ Ajouter photo</label>
             <input id="ajouterImage" type="file" accept="image/png, image/jpeg"> 
             <p class="infoImage">jpg, png : 4mo max</p>
@@ -75,7 +75,9 @@
             <input class="inputForm titrePhoto" type="text" name="titre" id="titre" required>
             <label for="categorie">Catégorie</label>
             <select class="inputForm categorie" type="select" name="categorie" id="categorie" required>
-          </select>
+            </select>
+              <hr />
+            <input type="submit" value="Valider" />
       </div>
         </form>
       </div>
