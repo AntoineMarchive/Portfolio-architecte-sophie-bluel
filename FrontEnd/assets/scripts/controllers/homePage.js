@@ -123,7 +123,24 @@ function modalGalleryDisplay(worksToDisplay) {
         }
       } 
     });
-  }
+  };
 };
 
+const addButton = document.getElementById("add-photo");
+const modalContent1 = document.querySelector(".modal-content");
+const modalContent2 = document.querySelector(".modal-content2");
 
+function switchModal(workkstodisplay) {
+  modalGallery.innerHTML = "";
+  if (modalContent1.classlit("hidden")) {
+    modalContent2.classList.add("hidden");
+    modalContent1.classList.remove("hidden");
+  } else {
+    modalContent1.classList.add("hidden");
+    modalContent2.classList.remove("hidden");
+  };
+};
+
+// event listerner sur btn
+// ecoute les crois sur les modal
+// faire le click en dehors de la modal
