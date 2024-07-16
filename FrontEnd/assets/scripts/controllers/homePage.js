@@ -8,9 +8,15 @@ const categories = await getCategories();
 
 const edition = document.getElementById("edition");
 const login = document.querySelector(".login");
+const modalGallery = document.querySelector(".modalGallery");
 const modification = document.getElementById("modification");
 const dialog = document.querySelector(".modal-delete");
 const closeModal = document.getElementById("closeModal");
+const changeModal = document.getElementById("changeModal");
+const modalContent1 = document.querySelector(".modal-content");
+const modalContent2 = document.querySelector(".modal-content2");
+const returnModal = document.getElementById("returnModal");
+const closeModal2 = document.getElementById("closeModal2");
 
 const token = localStorage.getItem("token");
 if (token) {
@@ -96,7 +102,6 @@ closeModal.addEventListener("click", (e) => {
   dialog.close();
 });
 
-const modalGallery = document.querySelector(".modalGallery");
 
 function modalGalleryDisplay(worksToDisplay) {
   modalGallery.innerHTML = "";
@@ -126,13 +131,10 @@ function modalGalleryDisplay(worksToDisplay) {
   };
 };
 
-const addButton = document.getElementById("add-photo");
-const modalContent1 = document.querySelector(".modal-content");
-const modalContent2 = document.querySelector(".modal-content2");
 
-function switchModal(workkstodisplay) {
-  modalGallery.innerHTML = "";
-  if (modalContent1.classlit("hidden")) {
+
+function switchModal() {
+  if (modalContent1.classList.contains("hidden")) {
     modalContent2.classList.add("hidden");
     modalContent1.classList.remove("hidden");
   } else {
@@ -141,6 +143,23 @@ function switchModal(workkstodisplay) {
   };
 };
 
+changeModal.addEventListener("click", (event) =>{
+  switchModal();
+  dialog.showModal();
+});
+
+returnModal.addEventListener("click", (event) => {
+  switchModal();
+});
+
+closeModal2.addEventListener("click", (event) => {
+  switchModal();
+  dialog.close();
+});
+
+closeModal.addEventListener("click", (event) => {
+  dialog.close();
+});
 // event listerner sur btn
 // ecoute les crois sur les modal
 // faire le click en dehors de la modal
