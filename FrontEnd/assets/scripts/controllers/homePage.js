@@ -17,6 +17,10 @@ const modalContent1 = document.querySelector(".modal-content");
 const modalContent2 = document.querySelector(".modal-content2");
 const returnModal = document.getElementById("returnModal");
 const closeModal2 = document.getElementById("closeModal2");
+const ajouterImage = document.getElementById("ajouterImage");
+const previewImageContainer = document.getElementById("previewImageContainer");
+
+
 
 const token = localStorage.getItem("token");
 if (token) {
@@ -102,7 +106,7 @@ closeModal.addEventListener("click", (e) => {
   dialog.close();
 });
 
-
+// Modal //
 function modalGalleryDisplay(worksToDisplay) {
   modalGallery.innerHTML = "";
   for (let i = 0; i < worksToDisplay.length; i++) {
@@ -132,7 +136,7 @@ function modalGalleryDisplay(worksToDisplay) {
 };
 
 
-
+//permet de passer de la modale 1 a 2 et inversement 
 function switchModal() {
   if (modalContent1.classList.contains("hidden")) {
     modalContent2.classList.add("hidden");
@@ -160,6 +164,19 @@ closeModal2.addEventListener("click", (event) => {
 closeModal.addEventListener("click", (event) => {
   dialog.close();
 });
-// event listerner sur btn
-// ecoute les crois sur les modal
-// faire le click en dehors de la modal
+
+//click en dehors de la modal
+dialog.addEventListener("click", (event) => {
+  if (event.target === dialog) {
+    dialog.close(); 
+  };
+});
+
+// Fonction pour afficher l'aperçu de l'image
+ajouterImage.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+   
+    }
+  }
+);
