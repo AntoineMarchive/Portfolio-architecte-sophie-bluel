@@ -19,6 +19,7 @@ const returnModal = document.getElementById("returnModal");
 const closeModal2 = document.getElementById("closeModal2");
 const ajouterImage = document.getElementById("ajouterImage");
 const previewImageContainer = document.getElementById("previewImageContainer");
+const addPhotoForm = document.getElementById("ajoutProjet"); // Ajout de la référence au formulaire
 
 
 
@@ -169,14 +170,67 @@ closeModal.addEventListener("click", (event) => {
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) {
     dialog.close(); 
-  };
+  }
 });
 
 // Fonction pour afficher l'aperçu de l'image
 ajouterImage.addEventListener("change", (event) => {
   const file = event.target.files[0];
   if (file) {
-   
-    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      previewImageContainer.innerHTML = `<img src="${e.target.result}" alt="Preview Image" class="preview-image">`;
+      previewImageContainer.classList.remove("hidden");
+      ajouterImage.classList.add("hidden")
+
+    };
+    reader.readAsDataURL(file);
+  } else {
+    previewImageContainer.innerHTML = "";
+    previewImageContainer.classList.add("hidden");
   }
-);
+});
+
+// Fonction pour soumettre le formulaire
+addPhotoForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formData = new FormData(addPhotoForm);
+  const file = formData.get('ajouterImage');
+
+  // Vérifier la taille du fichier (4 Mo max)
+  if (file.size > 4 * 1024 * 1024) {
+    alert("La taille du fichier dépasse la limite de 4 Mo.");
+    return;
+  }
+
+  const workData = {
+    title: formData.get('titre'),
+    categoryId: formData.get('categorie'),
+    imageUrl: formData.get('ajouterImage') 
+  };
+
+  try {
+    const newWork = await addWork(workData);
+    allWorks.push(newWork);
+    displayWorks(allWorks);
+    modalGalleryDisplay(allWorks);
+    switchModal(); // Retourner à la modal principale après l'ajout
+  } catch (error) {
+    alert("Une erreur est survenue lors de l'ajout de la photo.");
+  }
+});
+
+// Fonction pour obtenir et afficher les catégories dans le formulaire
+async function populateCategories() {
+  const categories = await getCategories();
+  const categorieSelect = document.getElementById("categorie");
+  categories.forEach(category => {
+    const option = document.createElement("option");
+    option.value = category.id;
+    option.innerText = category.name;
+    categorieSelect.appendChild(option);
+  });
+};
+
+// Appel de la fonction pour remplir les catégories au chargement de la page
+populateCategories();

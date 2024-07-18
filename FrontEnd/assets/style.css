@@ -477,6 +477,12 @@ footer nav ul {
   font-size: 24px;
 }
 
+.formAjoutProjet{
+	display: flex;
+	flex-direction: column;
+	width: 420px;
+}
+
 .ajoutPhoto{
 	margin-top: 10px;
 	display: flex;
@@ -521,7 +527,7 @@ footer nav ul {
 }
 
 .espaceCliquableAjoutImage{
-	z-index: 3;
+	z-index: 1;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -540,6 +546,12 @@ footer nav ul {
 	line-height: normal;
 	margin-top: 7px;
 	margin-bottom: 19px;
+}
+
+#previewImageContainer img {
+  height: 193px;
+  width: 129px;
+  position: absolute;
 }
 
 .divForm{
