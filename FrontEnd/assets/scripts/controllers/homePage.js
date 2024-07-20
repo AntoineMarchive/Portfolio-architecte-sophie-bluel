@@ -128,6 +128,7 @@ function modalGalleryDisplay(worksToDisplay) {
           const workGallery = document.getElementById("workGallery" +worksToDisplay[i].id);
           workGallery.remove();
           await deleteWork(worksToDisplay[i].id);
+          allWorks.splice(i, 1); // commit
         } catch (error) {
           alert("une erreur est survenue")
         }
@@ -176,41 +177,34 @@ dialog.addEventListener("click", (event) => {
 // Fonction pour afficher l'aperçu de l'image
 ajouterImage.addEventListener("change", (event) => {
   const file = event.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      previewImageContainer.innerHTML = `<img src="${e.target.result}" alt="Preview Image" class="preview-image">`;
-      previewImageContainer.classList.remove("hidden");
-      ajouterImage.classList.add("hidden")
-
-    };
-    reader.readAsDataURL(file);
-  } else {
-    previewImageContainer.innerHTML = "";
-    previewImageContainer.classList.add("hidden");
+  if (file.type !== "image/png" && file.type !== "image/jpeg") {
+    alert("Veuillez selectionner un fichier image de type JPG ou PNG.");
+    event.target.value = "";
   }
+   // Vérifier la taille du fichier (4 Mo max)
+   if (file.size > 4 * 1024 * 1024) {
+    alert("La taille du fichier dépasse la limite de 4 Mo.");
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    previewImageContainer.innerHTML = `<img src="${e.target.result}" alt="Preview Image" class="preview-image">`;
+    previewImageContainer.classList.remove("hidden");
+
+  };
+  reader.readAsDataURL(file);
+
 });
 
 // Fonction pour soumettre le formulaire
 addPhotoForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const formData = new FormData(addPhotoForm);
-  const file = formData.get('ajouterImage');
-
-  // Vérifier la taille du fichier (4 Mo max)
-  if (file.size > 4 * 1024 * 1024) {
-    alert("La taille du fichier dépasse la limite de 4 Mo.");
-    return;
-  }
-
-  const workData = {
-    title: formData.get('titre'),
-    categoryId: formData.get('categorie'),
-    imageUrl: formData.get('ajouterImage') 
-  };
-
+  const formData = new FormData(event.target);
+  console.log(formData.get("image"))
+  console.log(formData.get("title"))
+  console.log(formData.get("category"))
   try {
-    const newWork = await addWork(workData);
+    const newWork = await addWork(formData);
     allWorks.push(newWork);
     displayWorks(allWorks);
     modalGalleryDisplay(allWorks);
