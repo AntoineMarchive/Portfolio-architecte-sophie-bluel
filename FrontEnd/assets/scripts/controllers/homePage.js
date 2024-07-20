@@ -190,7 +190,8 @@ ajouterImage.addEventListener("change", (event) => {
   reader.onload = (e) => {
     previewImageContainer.innerHTML = `<img src="${e.target.result}" alt="Preview Image" class="preview-image">`;
     previewImageContainer.classList.remove("hidden");
-
+    const ajoutPhotoContainer = document.getElementById("ajoutPhotoContainer");
+    ajoutPhotoContainer.classList.add("hidden");
   };
   reader.readAsDataURL(file);
 
@@ -208,6 +209,7 @@ addPhotoForm.addEventListener("submit", async (event) => {
     allWorks.push(newWork);
     displayWorks(allWorks);
     modalGalleryDisplay(allWorks);
+    // retirer l'image, vider (image source vide), refaire afficher la div "ajouter photocontainer"
     switchModal(); // Retourner à la modal principale après l'ajout
   } catch (error) {
     alert("Une erreur est survenue lors de l'ajout de la photo.");
@@ -223,6 +225,7 @@ async function populateCategories() {
     option.value = category.id;
     option.innerText = category.name;
     categorieSelect.appendChild(option);
+    // recuperer l'id 0 , pour avoir un champ vide //
   });
 };
 
