@@ -44,9 +44,8 @@ export async function deleteWork(id) {
 export async function addWork(workData) {
     const res = await fetch("http://localhost:5678/api/works", {
         method: 'POST',
-        body: JSON.stringify(workData),
+        body: workData,
         headers: {
-            "Content-type": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`
         }
     });
