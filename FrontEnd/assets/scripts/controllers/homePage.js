@@ -219,7 +219,7 @@ addPhotoForm.addEventListener("submit", async (event) => {
     previewImageContainer.innerHTML = "";
     ajouterImage.value = "";
     ajoutPhotoContainer.classList.remove("hidden");
-    
+
     switchModal(); // Retourner à la modal principale après l'ajout
   } catch (error) {
     alert("Une erreur est survenue lors de l'ajout de la photo.");
@@ -230,6 +230,13 @@ addPhotoForm.addEventListener("submit", async (event) => {
 async function populateCategories() {
   const categories = await getCategories();
   const categorieSelect = document.getElementById("categorie");
+
+  // Ajouter une option vide au début
+  const emptyOption = document.createElement("option");
+  emptyOption.value = "";
+  emptyOption.innerText = "";
+  categorieSelect.appendChild(emptyOption);
+
   categories.forEach((category) => {
     const option = document.createElement("option");
     option.value = category.id;
@@ -238,6 +245,33 @@ async function populateCategories() {
     // recuperer l'id 0 , pour avoir un champ vide //
   });
 };
+
+// Fonction qui passe le bouton Valider en vert si tous les champs sont remplis
+function checkFormInputs() {
+  const image = document.getElementById("ajouterImage");
+  const titre = document.getElementById("titre");
+  const categorie = document.getElementById("categorie");
+  const validAjoutPhoto = document.querySelector(".btnValider");
+
+  if (
+    image.value.length > 0 &&
+    titre.value.length > 0 &&
+    categorie.value.length > 0
+  ) {
+    validAjoutPhoto.classList.remove("button-disabled");
+    validAjoutPhoto.classList.add("button-enabled");
+  } else {
+    validAjoutPhoto.classList.remove("button-enabled");
+    validAjoutPhoto.classList.add("button-disabled");
+  }
+}
+
+// Écouteur d'événement pour checker les inputs de mon formulaire
+document.querySelectorAll(".inputForm").forEach(function (element) {
+  element.addEventListener("change", function () {
+    checkFormInputs();
+  });
+});
 
 // Appel de la fonction pour remplir les catégories au chargement de la page
 populateCategories();
