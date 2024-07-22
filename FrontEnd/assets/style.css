@@ -588,14 +588,27 @@ footer nav ul {
   height: 30px;
 }
 
-.btnValider {
+#btnValider {
+  border: none;
   font-family: "Syne";
   font-weight: 700;
   color: white;
-  background-color: #1d6154;
+  background-color: #A7A7A7;
   margin: 2em auto;
   width: 180px;
   text-align: center;
   border-radius: 60px;
   padding: 6px;
 } 
+
+/* Styles pour les boutons de validation */
+.button-disabled {
+  background-color: #A7A7A7;
+  cursor: not-allowed;
+}
+
+.button-enabled {
+  background-color: #1D6154;
+  cursor: pointer;
+  color: white;
+}
