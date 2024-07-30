@@ -1,16 +1,17 @@
 import { login } from "../services/api.js";
 
+// Mes variables //
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const form = document.querySelector("form");
 const errorText = document.getElementById("errortext");
  
  
-
+// Fonction permetant  de verifier le Token //
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     const valueEmail = email.value; // valeur de l'email a ce moment la 
-    const valuePassword = password.value; // valeur du password a ce moment lat
+    const valuePassword = password.value; // valeur du password a ce moment la
     login(valueEmail, valuePassword)
     .then((response) => response.json()) // puis la reponse sera une reponse au format json.
     .then(login => { 

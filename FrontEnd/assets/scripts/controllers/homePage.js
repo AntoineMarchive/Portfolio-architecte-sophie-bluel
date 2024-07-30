@@ -1,3 +1,4 @@
+// Import de l'API //
 import {
   getWorks,
   getCategories,
@@ -5,6 +6,7 @@ import {
   addWork,
 } from "../services/api.js";
 
+// Mes variables //
 const galleryContainer = document.querySelector(".gallery");
 const categoriesContainer = document.querySelector(".filtres");
 
@@ -26,6 +28,10 @@ const ajouterImage = document.getElementById("ajouterImage");
 const previewImageContainer = document.getElementById("previewImageContainer");
 const addPhotoForm = document.getElementById("ajoutProjet"); // Ajout de la référence au formulaire
 
+displayWorks(allWorks);
+displayCategories(categories);
+
+// Token //
 const token = localStorage.getItem("token");
 if (token) {
   edition.classList.remove("hidden");
@@ -40,9 +46,9 @@ if (token) {
   });
 }
 
-displayWorks(allWorks);
-displayCategories(categories);
 
+
+// affichage des filtres//
 function displayCategories(categoriesToDisplay) {
   categoriesToDisplay.unshift({
     id: 0,
@@ -83,6 +89,7 @@ function displayCategories(categoriesToDisplay) {
   }
 }
 
+//affichage des galeries//
 function displayWorks(worksToDisplay) {
   galleryContainer.innerHTML = "";
   for (let i = 0; i < worksToDisplay.length; i++) {
@@ -242,7 +249,6 @@ async function populateCategories() {
     option.value = category.id;
     option.innerText = category.name;
     categorieSelect.appendChild(option);
-    // recuperer l'id 0 , pour avoir un champ vide //
   });
 };
 
@@ -251,18 +257,22 @@ function checkFormInputs() {
   const image = document.getElementById("ajouterImage");
   const titre = document.getElementById("titre");
   const categorie = document.getElementById("categorie");
-  const validAjoutPhoto = document.querySelector(".btnValider");
+  const validAjoutPhoto = document.querySelector("#btnValider");
 
   if (
-    image.value.length > 0 &&
+    image.files.length > 0 &&
     titre.value.length > 0 &&
-    categorie.value.length > 0
+    categorie.value
   ) {
     validAjoutPhoto.classList.remove("button-disabled");
     validAjoutPhoto.classList.add("button-enabled");
+    console.log("ok")
+    validAjoutPhoto.disabled = false
   } else {
     validAjoutPhoto.classList.remove("button-enabled");
     validAjoutPhoto.classList.add("button-disabled");
+    console.log("no")
+    validAjoutPhoto.disabled = true
   }
 }
 

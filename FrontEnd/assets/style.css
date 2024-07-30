@@ -608,7 +608,7 @@ footer nav ul {
 }
 
 .button-enabled {
-  background-color: #1D6154;
+  background-color: #1D6154 !important;
   cursor: pointer;
   color: white;
 }

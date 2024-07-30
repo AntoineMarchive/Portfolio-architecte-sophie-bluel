@@ -67,7 +67,7 @@
             <div id="ajoutPhotoContainer" class="ajoutPhotoContainer"> <!-- creer une class ou un id pour faire disparaite ou non-->
               <i class="fa-regular fa-image"  alt="Télécharger image"></i>
               <label for="ajouterImage" class="ajouterImage flex"><div class="espaceCliquableAjoutImage"></div>+ Ajouter photo</label>
-              <input id="ajouterImage" type="file" accept="image/png, image/jpeg" name="image"> 
+              <input id="ajouterImage"  class="inputForm" type="file" accept="image/png, image/jpeg" name="image"> 
               <p class="infoImage">jpg, png : 4mo max</p>
             </div>
             <div id="previewImageContainer" class="hidden"></div> <!-- faire plutot une baliside img-->
@@ -79,7 +79,7 @@
             <select class="inputForm categorie" type="select" name="category" id="categorie" required>
             </select> 
               <hr />
-            <input id="btnValider"  type="submit" value="Valider" />
+            <input id="btnValider"  type="submit" value="Valider" disabled />
       </div>
         </form>
       </div>
